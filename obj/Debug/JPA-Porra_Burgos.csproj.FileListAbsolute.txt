@@ -1,0 +1,105 @@
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\PorraDB.mdf
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\PorraDB_log.ldf
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\JPA-Porra_Burgos.exe.config
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\JPA-Porra_Burgos.exe.manifest
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\JPA-Porra_Burgos.application
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\JPA-Porra_Burgos.exe
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\JPA-Porra_Burgos.pdb
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\ControlzEx.dll
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\EntityFramework.dll
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\FluentValidation.dll
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\MahApps.Metro.dll
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\MaterialDesignThemes.MahApps.dll
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\ControlzEx.pdb
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\ControlzEx.xml
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\EntityFramework.xml
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\FluentValidation.xml
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\MahApps.Metro.pdb
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\MahApps.Metro.xml
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\MaterialDesignThemes.MahApps.pdb
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\bin\Debug\de\MahApps.Metro.resources.dll
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\View\Login.baml
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\View\PrincipalMenu.baml
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\App.baml
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\View\Login.g.cs
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\View\PrincipalMenu.g.cs
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\App.g.cs
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\JPA-Porra_Burgos_Content.g.cs
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\JPA-Porra_Burgos_MarkupCompile.cache
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\JPA-Porra_Burgos.g.resources
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\JPA_Porra_Burgos.Properties.Resources.resources
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\JPA-Porra_Burgos.csproj.GenerateResource.cache
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\JPA-Porra_Burgos.csproj.CoreCompileInputs.cache
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\JPA-Porra_Burgos.exe.manifest
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\JPA-Porra_Burgos.application
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\JPA-Porra_Burgos.csproj.CopyComplete
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\JPA-Porra_Burgos.exe
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\JPA-Porra_Burgos.pdb
+C:\Users\JAVIER\source\repos\JPA-Porra_Burgos\obj\Debug\JPA-Porra_Burgos.csprojAssemblyReference.cache
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\JPA-Porra_Burgos.exe.config
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\JPA-Porra_Burgos.exe.manifest
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\JPA-Porra_Burgos.application
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\JPA-Porra_Burgos.exe
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\JPA-Porra_Burgos.pdb
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\ControlzEx.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\MahApps.Metro.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\MaterialDesignThemes.MahApps.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\ControlzEx.pdb
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\ControlzEx.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\MahApps.Metro.pdb
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\MahApps.Metro.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\MaterialDesignThemes.MahApps.pdb
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\de\MahApps.Metro.resources.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\JPA-Porra_Burgos.csprojAssemblyReference.cache
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\View\Login.baml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\View\PrincipalMenu.baml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\App.baml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\View\Login.g.cs
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\View\PrincipalMenu.g.cs
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\App.g.cs
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\JPA-Porra_Burgos_MarkupCompile.cache
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\JPA-Porra_Burgos.g.resources
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\JPA_Porra_Burgos.Properties.Resources.resources
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\JPA-Porra_Burgos.csproj.GenerateResource.cache
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\JPA-Porra_Burgos.csproj.CoreCompileInputs.cache
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\JPA-Porra_Burgos.exe.manifest
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\JPA-Porra_Burgos.application
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\JPA-Porra_Burgos.csproj.CopyComplete
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\JPA-Porra_Burgos.exe
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\obj\Debug\JPA-Porra_Burgos.pdb
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\Newtonsoft.Json.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Buffers.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Memory.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Text.Json.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.ValueTuple.dll
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\Newtonsoft.Json.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Buffers.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Memory.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Text.Json.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientWpf\bin\Debug\System.ValueTuple.xml

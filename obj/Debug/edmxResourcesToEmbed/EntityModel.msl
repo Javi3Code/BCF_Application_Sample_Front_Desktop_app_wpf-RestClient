@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PorraDBModelStoreContainer" CdmEntityContainer="PorraDBConnection">
+    <EntitySetMapping Name="footmatch">
+      <EntityTypeMapping TypeName="PorraDBModel.footmatch">
+        <MappingFragment StoreEntitySet="footmatch">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="local" ColumnName="match" />
+          <ScalarProperty Name="player" ColumnName="player" />
+          <ScalarProperty Name="result" ColumnName="result" />
+          <ScalarProperty Name="winnersign" ColumnName="winnersign" />
+          <ScalarProperty Name="goalsburgos" ColumnName="goalsburgos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="player">
+      <EntityTypeMapping TypeName="PorraDBModel.player">
+        <MappingFragment StoreEntitySet="player">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nick" ColumnName="nick" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="totalpoints" ColumnName="totalpoints" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rules">
+      <EntityTypeMapping TypeName="IsTypeOf(PorraDBModel.rules)">
+        <MappingFragment StoreEntitySet="rules">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="goalsburgospoints" ColumnName="goalsburgospoints" />
+          <ScalarProperty Name="signpoints" ColumnName="signpoints" />
+          <ScalarProperty Name="resultpoints" ColumnName="resultpoints" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

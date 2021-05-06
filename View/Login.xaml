@@ -1,0 +1,29 @@
+﻿<Window x:Class="JPA_Porra_Burgos.View.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+     Title="Login" Height="700" Width="900"
+        AllowsTransparency="false"
+        AllowDrop="True"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        ContentRendered="WindowLoadEvent"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Image x:Name="loginImg" HorizontalAlignment="Center" 
+               Margin="0,0,0,0" VerticalAlignment="Center"   Stretch="Fill" Source="/JPA-Porra_Burgos;component/res/wallp1.png"/>
+        <ProgressBar x:Name="progressInit" HorizontalAlignment="Left" Height="22" Margin="54,667,0,0" VerticalAlignment="Top" Width="807" RenderTransformOrigin="0.5,0.5" Foreground="#FFC5D9C8" BorderBrush="#FF397A45" Background="#FF397A45">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.048"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <Label x:Name="percentage" Content="0%" HorizontalContentAlignment="Center" Margin="436,641,420,0" VerticalAlignment="Top" FontWeight="Bold" Width="44"/>
+    </Grid>
+</Window>

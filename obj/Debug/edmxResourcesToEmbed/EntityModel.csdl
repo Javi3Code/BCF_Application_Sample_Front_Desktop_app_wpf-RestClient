@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PorraDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="footmatch">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="local" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="player" Type="Int32" Nullable="false" />
+    <Property Name="result" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="winnersign" Type="Int16" Nullable="false" />
+    <Property Name="goalsburgos" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="player1" Relationship="Self.fk_res_pl" FromRole="footmatch" ToRole="player" />
+    <Property Name="visitor" Type="String" Nullable="false" FixedLength="false" MaxLength="60" Unicode="false" />
+  </EntityType>
+  <EntityType Name="player">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nick" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="totalpoints" Type="Int32" />
+    <NavigationProperty Name="footmatch" Relationship="Self.fk_res_pl" FromRole="player" ToRole="footmatch" />
+  </EntityType>
+  <EntityType Name="rules">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="resultpoints" Type="Int16" Nullable="false" />
+    <Property Name="signpoints" Type="Int16" Nullable="false" />
+    <Property Name="goalsburgospoints" Type="Int16" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_res_pl">
+    <End Role="player" Type="Self.player" Multiplicity="1" />
+    <End Role="footmatch" Type="Self.footmatch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="player">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="footmatch">
+        <PropertyRef Name="player" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PorraDBConnection" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="footmatch" EntityType="Self.footmatch" />
+    <EntitySet Name="player" EntityType="Self.player" />
+    <EntitySet Name="rules" EntityType="Self.rules" />
+    <AssociationSet Name="fk_res_pl" Association="Self.fk_res_pl">
+      <End Role="player" EntitySet="player" />
+      <End Role="footmatch" EntitySet="footmatch" />
+    </AssociationSet>
+    <EntitySet Name="teamSet" EntityType="PorraDBModel.team" />
+  </EntityContainer>
+  <EntityType Name="team">
+    <Key>
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" FixedLength="false" MaxLength="60" Unicode="false" />
+  </EntityType>
+</Schema>

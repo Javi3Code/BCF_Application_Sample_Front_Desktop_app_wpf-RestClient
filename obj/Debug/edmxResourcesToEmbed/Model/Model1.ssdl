@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="porramodel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="concretematch">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="localteam" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="visitorteam" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="result" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="player">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nick" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="mail" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="totalpoints" Type="int" />
+  </EntityType>
+  <EntityType Name="playerfootmatch">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="local" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="player" Type="int" Nullable="false" />
+    <Property Name="result" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="winnersign" Type="smallint" Nullable="false" />
+    <Property Name="goalsburgos" Type="smallint" Nullable="false" />
+    <Property Name="visitor" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rules">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="resultpoints" Type="smallint" Nullable="false" />
+    <Property Name="signpoints" Type="smallint" Nullable="false" />
+    <Property Name="goalsburgospoints" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="team">
+    <Key>
+      <PropertyRef Name="teamName" />
+    </Key>
+    <Property Name="teamName" Type="varchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_res_m">
+    <End Role="concretematch" Type="Self.concretematch" Multiplicity="1" />
+    <End Role="playerfootmatch" Type="Self.playerfootmatch" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="concretematch">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="playerfootmatch">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_res_pl">
+    <End Role="player" Type="Self.player" Multiplicity="1" />
+    <End Role="playerfootmatch" Type="Self.playerfootmatch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="player">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="playerfootmatch">
+        <PropertyRef Name="player" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="porramodelStoreContainer">
+    <EntitySet Name="concretematch" EntityType="Self.concretematch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="player" EntityType="Self.player" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="playerfootmatch" EntityType="Self.playerfootmatch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rules" EntityType="Self.rules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="team" EntityType="Self.team" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_res_m" Association="Self.fk_res_m">
+      <End Role="concretematch" EntitySet="concretematch" />
+      <End Role="playerfootmatch" EntitySet="playerfootmatch" />
+    </AssociationSet>
+    <AssociationSet Name="fk_res_pl" Association="Self.fk_res_pl">
+      <End Role="player" EntitySet="player" />
+      <End Role="playerfootmatch" EntitySet="playerfootmatch" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
