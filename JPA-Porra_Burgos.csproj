@@ -156,6 +156,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="restclient\constants\RestConstants.cs" />
+    <Compile Include="restclient\PlayerListWrapper.cs" />
     <Compile Include="restclient\request\AbstractRestClientService.cs" />
     <Compile Include="restclient\request\ConcreteMatchRestClientService.cs" />
     <Compile Include="restclient\request\DownloadLicenseRestClientService.cs" />

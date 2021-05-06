@@ -175,7 +175,7 @@
                     </Button.Background>
                 </Button>
                 <Image Source="/res/goal.png" Margin="216,324,335.6,106.4"/>
-                <Button x:Name="btnDeleteTeam" Content="BORRAR EQUIPO SELECCIONADO" FontSize="20" Click="OnClickDeleteSelected"
+                <Button x:Name="btnDeleteTeam" Content="BORRAR EQUIPO" FontSize="20" Click="OnClickDeleteSelected"
                         MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="104,463,0,0" 
                         VerticalAlignment="Top" Width="324" Height="66" MouseEnter="OnEnterFGChange"
                         mah:ControlsHelper.ContentCharacterCasing="Normal" 
@@ -325,7 +325,7 @@
                 </Button>
             </Grid>
         </materialDesign:Card>
-        <materialDesign:Card x:Name="cardJourney" Visibility="Hidden" Background="#2e7240" HorizontalAlignment="Right" VerticalAlignment="Top" Height="550" Width="650" Margin="0,0,-0.4,0">
+        <materialDesign:Card x:Name="cardJourney" IsVisibleChanged="OnCardJourney_IsVisibilityChanged" Visibility="Hidden" Background="#2e7240" HorizontalAlignment="Right" VerticalAlignment="Top" Height="550" Width="650" Margin="0,0,-0.4,0">
             <Grid>
                 <TextBlock Text="JORNADA" FontSize="25"  VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold" 
                                    Foreground="WhiteSmoke" Height="37" Margin="0,0,-0.4,513.4" HorizontalAlignment="Right" Width="570"/>
@@ -656,8 +656,6 @@
                     </Button.Background>
                 </Button>
                 <TextBox x:Name="txtPdfPath" IsEnabled="False" Background="#81c994" TextAlignment="Center" FontSize="16" FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" Margin="98,264,16.6,249.4"/>
-                <mah:ProgressRing x:Name="ringAwait" Width="380" Foreground="Black" BorderBrush="Black" Cursor="AppStarting" Opacity="0.4"
-                  IsActive="False" />
             </Grid>
         </materialDesign:Card>
         <materialDesign:Card x:Name="cardAdjust" Visibility="Hidden" Background="#2e7240" HorizontalAlignment="Right" VerticalAlignment="Top" Height="550" Width="650" Margin="0,0,-0.4,0">
@@ -703,6 +701,8 @@
                 </Button>
             </Grid>
         </materialDesign:Card>
+        <mah:ProgressRing x:Name="ringAwait" Width="380" Foreground="WhiteSmoke" BorderBrush="Black" Cursor="Wait" Opacity="0.6"
+                  IsActive="false" />
     </Grid>
     <Window.Resources>
         <Style x:Key="FocusVisual">

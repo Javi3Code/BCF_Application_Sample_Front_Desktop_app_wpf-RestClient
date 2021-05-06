@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JPA-Porra_Burgos.exe" size="736744">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JPA-Porra_Burgos.exe" size="739304">
       <assemblyIdentity name="JPA-Porra_Burgos" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>tPA3SiqUp9AqaIp7r3+E89+wFS4bWCItz6TqP9NlD2I=</dsig:DigestValue>
+        <dsig:DigestValue>Ue3mRhxvttfhHTAlWaa1UlOaeLnV7SXC3d4sw72vOaI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

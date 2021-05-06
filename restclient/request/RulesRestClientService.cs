@@ -6,7 +6,6 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Web.Http;
 
 namespace RestClientBCF.restclient.request
 {
@@ -20,7 +19,7 @@ namespace RestClientBCF.restclient.request
             return await restClient.GetAsync(RULES_Uri);
         }
 
-        public async Task<HttpResponseMessage> setRules(Rules rules, String fileUri,String fileName)
+        public async Task<HttpResponseMessage> setRules(Rules rules, String fileUri, String fileName)
         {
 
             var multipart = new MultipartFormDataContent();

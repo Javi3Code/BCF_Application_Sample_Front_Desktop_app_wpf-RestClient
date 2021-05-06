@@ -10,7 +10,7 @@ namespace RestClientBCF.restclient.request
 
         public async Task<HttpResponseMessage> resetSeason()
         {
-            return await restClient.PutAsync(SEASON_Uri,null);
+            return await restClient.PutAsync(SEASON_Uri, null);
         }
     }
 }
