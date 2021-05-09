@@ -701,7 +701,7 @@
                 </Button>
             </Grid>
         </materialDesign:Card>
-        <mah:ProgressRing x:Name="ringAwait" Width="380" Foreground="WhiteSmoke" BorderBrush="Black" Cursor="Wait" Opacity="0.6"
+        <mah:ProgressRing x:Name="ringAwait" Width="380" Foreground="WhiteSmoke" BorderBrush="Black" Cursor="Wait" Opacity="1"
                   IsActive="false" />
     </Grid>
     <Window.Resources>

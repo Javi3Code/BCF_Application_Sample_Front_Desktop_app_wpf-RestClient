@@ -29,7 +29,7 @@ namespace RestClientBCF.restclient.constants
 
         public const string LOGS_SUPPORT_MSG_PARAM = "?clientErrorMessage=";
 
-        public const string ERROR_REST_DELIMITER = ":err:";
+        public const char ERROR_REST_DELIMITER = '?';
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using JPA_Porra_Burgos.restclient;
+using JPA_Porra_Burgos.restclient.request.Errors;
 using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
 using RestClientBCF;
@@ -8,7 +9,6 @@ using RestClientBCF.restclient.request.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
@@ -37,21 +37,10 @@ namespace JPA_Porra_Burgos.View
         static SendLogsRestClientService sendLogsRestClientService = new SendLogsRestClientService();
         static DownloadLicenseRestClientService downloadLicenseRestClientService = new DownloadLicenseRestClientService();
 
-        private const string CONNECTION_ERROR = "No es posible conectarse al servidor, revise su conexión.";
         private const string EMPTY_STR = "";
 
-        /// <summary>
-        /// 
-        /// Constructor, se inicia el menú.
-        /// 
-        /// </summary>
         public PrincipalMenu() => InitMenu();
 
-        /// <summary>
-        /// 
-        /// Se inician los componentes y se añade un evento de drag and drop a la ventana principal.
-        /// 
-        /// </summary>
         private void InitMenu()
         {
             InitializeComponent();
@@ -78,16 +67,25 @@ namespace JPA_Porra_Burgos.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnClickClose(object sender, RoutedEventArgs e)
+        private async void OnClickClose(object sender, RoutedEventArgs e)
         {
             ringActive();
-            var result = MessageBox.Show(null, "¿Seguro que quieres salir?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.OK, MessageBoxOptions.ServiceNotification);
-
-            if (result.Equals(MessageBoxResult.Yes))
+            var questDialog = AppQuestDialog.Show("¿Seguro que quieres salir?");
+            var result = await CloseApp(questDialog);
+            if (result)
             {
                 Close();
             }
             ringDisabled();
+        }
+
+        private async Task<bool> CloseApp(AppQuestDialog questDialog)
+        {
+            return await Task.Run(() =>
+              {
+                  return questDialog.Result;
+              });
+
         }
 
         /// <summary>
@@ -270,13 +268,11 @@ namespace JPA_Porra_Burgos.View
 
         private async void OnVisibility_Visible(object sender, DependencyPropertyChangedEventArgs e)
         {
-            ringActive();
             var card = sender as Card;
             if (card.Visibility == Visibility.Visible)
             {
                 await TryToShowRulesSetAsync(true);
             }
-            ringDisabled();
         }
 
         static string fileName;
@@ -292,36 +288,58 @@ namespace JPA_Porra_Burgos.View
 
         private async void OnClick_DefaultValues(object sender, RoutedEventArgs e)
         {
-            ringActive();
+
             var fileUri = txtPdfPath.Text;
             if (String.IsNullOrEmpty(fileUri))
             {
-                MessageBox.Show("Debe seleccionarse un fichero .pdf a enviar. El PDF con el contenido de las reglas de participación y puntuación.");
+                ringActive();
+                AppWarnDialog.Show("Debe seleccionarse un fichero .pdf a enviar.\nEl PDF con el contenido de las reglas de participación y puntuación.");
+                ringDisabled();
             }
             else
             {
                 await TryToUpdateRulesAndShowAsync(null, fileUri, fileName);
             }
-            ringDisabled();
+
         }
 
         private async void OnClick_UpdateRules(object sender, RoutedEventArgs e)
         {
-            ringActive();
+
             var fileUri = txtPdfPath.Text;
             if (String.IsNullOrEmpty(fileUri))
             {
-                MessageBox.Show("Debe seleccionarse un fichero .pdf a enviar, con el contenido de las reglas de participación y puntuación.");
+                ringActive();
+                AppMessageDialog.Show("Debe seleccionarse un fichero .pdf a enviar, con el contenido de las reglas de participación y puntuación.");
+                ringDisabled();
             }
             else
             {
                 var rules = new Rules();
-                rules.resultPoints = int.Parse(txtPR.Text);
-                rules.signPoints = int.Parse(txtSR.Text);
-                rules.goalsBCFPoints = int.Parse(txtGR.Text);
-                await TryToUpdateRulesAndShowAsync(rules, fileUri, fileName);
+                var textPR = txtPR.Text;
+                var textSR = txtSR.Text;
+                var textGR = txtGR.Text;
+                var prValid = validatePoints(textPR);
+                var srValid = validatePoints(textSR);
+                var grValid = validatePoints(textGR);
+                if (!prValid || !srValid || !grValid)
+                {
+                    AppMessageDialog.Show("Se deben introducir valores en los 3 campos para poder actualizar las reglas.");
+                }
+                else
+                {
+                    rules.resultPoints = int.Parse(textPR);
+                    rules.signPoints = int.Parse(txtSR.Text);
+                    rules.goalsBCFPoints = int.Parse(txtGR.Text);
+                    await TryToUpdateRulesAndShowAsync(rules, fileUri, fileName);
+                }
             }
-            ringDisabled();
+
+        }
+
+        private bool validatePoints(string txt)
+        {
+            return !String.IsNullOrWhiteSpace(txt);
         }
 
         private void Back_R_ToInitial(object sender, RoutedEventArgs e)
@@ -339,13 +357,15 @@ namespace JPA_Porra_Burgos.View
         {
             try
             {
+                ringActive();
                 var rulesResponse = await rulesRestClientService.getRules();
                 await TryToManipulateRulesWrapperAsync(rulesResponse, notUpdate);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
+            ringDisabled();
         }
         private async Task TryToUpdateRulesAndShowAsync(Rules rules, string fileUri, string fileName)
         {
@@ -358,7 +378,7 @@ namespace JPA_Porra_Burgos.View
             catch (Exception ex)
             {
                 DisabledAllInRulesPanel(false);
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
         }
 
@@ -380,7 +400,7 @@ namespace JPA_Porra_Burgos.View
             if (!notUpdate)
             {
                 DisabledAllInRulesPanel(false);
-                MessageBox.Show("Se ha realizado la actualización con éxito.");
+                AppMessageDialog.Show("Se ha realizado la actualización con éxito.");
                 txtPdfPath.Text = null;
                 txtPR.Text = null;
                 txtSR.Text = null;
@@ -395,12 +415,13 @@ namespace JPA_Porra_Burgos.View
 
         private async void OnClickResetTemp(object sender, RoutedEventArgs e)
         {
-            ringActive();
-            var result = MessageBox.Show(null, "¿Seguro que quieres terminar la temporada?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.OK, MessageBoxOptions.ServiceNotification);
-            if (result.Equals(MessageBoxResult.Yes))
+
+            var questDialog = AppQuestDialog.Show("¿Seguro que quieres terminar la temporada?");
+            if (questDialog.Result)
             {
                 try
                 {
+                    ringActive();
                     var seasonResponse = await seasonRestClientService.resetSeason();
                     var responseContent = seasonResponse.Content;
                     await GenericBadRequestManagerAsync(seasonResponse, responseContent);
@@ -412,28 +433,31 @@ namespace JPA_Porra_Burgos.View
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    AppWarnDialog.Show(ex.Message);
                 }
+                ringDisabled();
             }
-            ringDisabled();
+
         }
 
         private async void OnResultsCard_IsVisible(object sender, DependencyPropertyChangedEventArgs e)
         {
-            ringActive();
+
             var card = sender as Card;
             if (card.Visibility == Visibility.Visible)
             {
                 try
                 {
+                    ringActive();
                     await LoadPlayerDataTableWithSimpleDataAsync(null, resultTable);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    AppWarnDialog.Show(ex.Message);
                 }
+                ringDisabled();
             }
-            ringDisabled();
+
         }
 
         ///GENERICS METHODS
@@ -456,7 +480,7 @@ namespace JPA_Porra_Burgos.View
             var playersAsyncResponse = playerRestClientService.getPlayers(RestConstants.PLAYER_DATA_SIMPLE_WITH_ID);
             if (message != null)
             {
-                MessageBox.Show(message);
+                AppMessageDialog.Show(message);
             }
             await GetPlayerSimpleDataAndShowAsync(playersAsyncResponse, table);
         }
@@ -465,10 +489,11 @@ namespace JPA_Porra_Burgos.View
 
         private async void OnClickAddPlayer(object sender, RoutedEventArgs e)
         {
-            ringActive();
+
             var player = new Player();
             try
             {
+                ringActive();
                 player.playerNick = txtPlayerName.Text;
                 player.playerMail = txtPlayerMail.Text;
                 var insertResponse = await playerRestClientService.insertOnePlayer(player);
@@ -481,19 +506,20 @@ namespace JPA_Porra_Burgos.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
 
         private async void OnClickDeletePlayer(object sender, RoutedEventArgs e)
         {
-            ringActive();
+
             try
             {
+                ringActive();
                 var messages = new String[] { "Solo puedes borrar de uno en uno.", "Debes seleccionar un jugador de la tabla para eliminarlo.", "¿Seguro que quieres eliminar el jugador?" };
-                var result = ValidateIfAreValidInputs(messages);
-                if (result.Equals(MessageBoxResult.Yes))
+                var questDialog = ValidateIfAreValidInputs(messages);
+                if (questDialog.Result)
                 {
                     Func<Player, bool> isThisPlayer = pl => pl.playerNick.Equals(((Player)playersTable.SelectedValue).playerNick);
                     var player = lstOfPlayers.First(isThisPlayer);
@@ -509,19 +535,20 @@ namespace JPA_Porra_Burgos.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
 
         private async void OnClickUpdatePlayer(object sender, RoutedEventArgs e)
         {
-            ringActive();
+
             try
             {
+                ringActive();
                 var messages = new String[] { "Solo puedes actualizar de uno en uno.", "Debes seleccionar un jugador de la tabla para actualizarlo", "¿Seguro que quieres actualizar al jugador?" };
-                var result = ValidateIfAreValidInputs(messages);
-                if (result.Equals(MessageBoxResult.Yes))
+                var questDialog = ValidateIfAreValidInputs(messages);
+                if (questDialog.Result)
                 {
                     Func<Player, bool> isThisPlayer = pl => pl.playerNick.Equals(((Player)playersTable.SelectedValue).playerNick);
                     var player = lstOfPlayers.First(isThisPlayer);
@@ -536,30 +563,31 @@ namespace JPA_Porra_Burgos.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
 
         private async void OnPlayersCard_IsVisible(object sender, DependencyPropertyChangedEventArgs e)
         {
-            ringActive();
             var card = sender as Card;
             if (card.Visibility == Visibility.Visible)
             {
                 try
                 {
+                    ringActive();
                     await LoadPlayerDataTableWithSimpleDataAsync(null, playersTable);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    AppWarnDialog.Show(ex.Message);
                 }
+                ringDisabled();
             }
-            ringDisabled();
+
         }
 
-        private MessageBoxResult ValidateIfAreValidInputs(string[] messages)
+        private AppQuestDialog ValidateIfAreValidInputs(string[] messages)
         {
             if (playersTable.SelectedItems.Count > 1)
             {
@@ -569,56 +597,56 @@ namespace JPA_Porra_Burgos.View
             {
                 throw new Exception(messages[1]);
             }
-            var result = MessageBox.Show(messages[2], null, MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.OK, MessageBoxOptions.ServiceNotification);
-            return result;
+            return AppQuestDialog.Show(messages[2]);
         }
         // Eventos Datos::teamscard : Los eventos relacionados con el panel de EQUIPOS.
 
         private async void OnClickAddTeam(object sender, RoutedEventArgs e)
         {
-            ringActive();
+
             var team = new Team();
             try
             {
+                ringActive();
                 team.teamName = txtTeamName.Text;
                 var insertResponse = await teamRestClienService.insertOneTeam(team);
                 var insertContent = insertResponse.Content;
                 await GenericBadRequestManagerAsync(insertResponse, insertContent);
                 var teaminserted = await insertContent.ReadAsAsync<Team>();
-                MessageBox.Show("Se insertó " + teaminserted.teamName + " correctamente");
+                AppMessageDialog.Show("Se insertó " + teaminserted.teamName + " correctamente");
                 txtTeamName.Text = EMPTY_STR;
-                LoadTeamsDataTable();
+                await LoadTeamsDataTable();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
 
-        private void OnTeamsCard_IsVisible(object sender, DependencyPropertyChangedEventArgs e)
+        private async void OnTeamsCard_IsVisible(object sender, DependencyPropertyChangedEventArgs e)
         {
-            ringActive();
             try
             {
+                ringActive();
                 var card = sender as Card;
                 if (card.Visibility == Visibility.Visible)
                 {
-                    LoadTeamsDataTable();
+                    await LoadTeamsDataTable();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
 
         private async void OnClickDeleteSelected(object sender, RoutedEventArgs e)
         {
-            ringActive();
             try
             {
+                ringActive();
                 if (teamsTable.SelectedItems.Count > 1)
                 {
                     throw new Exception("Solo puedes borrar de uno en uno.");
@@ -627,9 +655,9 @@ namespace JPA_Porra_Burgos.View
                 {
                     throw new Exception("Debes seleccionar un equipo de la tabla para eliminarlo");
                 }
-                var result = MessageBox.Show(null, "¿Seguro que quieres eliminar el equipo?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.OK, MessageBoxOptions.ServiceNotification);
+                var questDialog = AppQuestDialog.Show("¿Seguro que quieres eliminar el equipo?");
 
-                if (result.Equals(MessageBoxResult.Yes))
+                if (questDialog.Result)
                 {
                     var team = ((Team)teamsTable.SelectedValue);
                     var deletedResponse = await teamRestClienService.deleteOneTeam(team);
@@ -640,23 +668,24 @@ namespace JPA_Porra_Burgos.View
                     {
                         throw new Exception("Problema no identificado al tratar de borrar el equipo seleccionado.");
                     }
-                    MessageBox.Show(deleteSucces + " fue borrado con éxito.");
-                    LoadTeamsDataTable();
+                    AppMessageDialog.Show(team.teamName + " fue borrado con éxito.");
+                    await LoadTeamsDataTable();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
 
 
 
-        private async void LoadTeamsDataTable()
+        private async Task LoadTeamsDataTable()
         {
             try
             {
+                ringActive();
                 var teamsResponse = await teamRestClienService.getTeams();
                 var teamsContent = teamsResponse.Content;
                 await GenericBadRequestManagerAsync(teamsResponse, teamsContent);
@@ -664,41 +693,37 @@ namespace JPA_Porra_Burgos.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
+            ringDisabled();
         }
         // Eventos Datos::journeycard : Los eventos relacionados con el panel de JORNADA.
 
 
         static ConcreteMatch openConcreteMatch;
-        static string notExistOpenConcreteMatchMessage;
 
         private void OnClickOpenNewJourney(object sender, RoutedEventArgs e)
         {
-            ringActive();
+
             if (openConcreteMatch != null)
             {
-                MessageBox.Show("Aún existe una jornada abierta.\nNo puedes abrir una nueva hasta que finalice");
+                ringActive();
+                AppMessageDialog.Show("Aún existe una jornada abierta.\nNo puedes abrir una nueva hasta que finalice");
+                ringDisabled();
             }
             else
             {
                 cardJourney.Visibility = Visibility.Hidden;
                 OnClickShow(sender, e);
             }
-            ringDisabled();
+
         }
         private void OnCardJourney_IsVisibilityChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            ringActive();
             if (cardJourney.Visibility == Visibility.Visible)
             {
                 GetOpenConcreteMatch();
             }
-            else
-            {
-                CleanStaticVars();
-            }
-            ringDisabled();
         }
 
 
@@ -727,39 +752,24 @@ namespace JPA_Porra_Burgos.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
 
 
-        private void CleanStaticVars()
-        {
-            //  openConcreteMatch = null;
-            notExistOpenConcreteMatchMessage = null;
-        }
-
         private async void GetOpenConcreteMatch()
         {
             try
             {
+                ringActive();
                 var openConcreteMatchResponse = await concreteMatchRestClientService.getOpenMatch();
                 var responseContent = openConcreteMatchResponse.Content;
-                var isBadRequest = openConcreteMatchResponse.StatusCode == HttpStatusCode.BadRequest;
-                if (isBadRequest)
-                {
-                    notExistOpenConcreteMatchMessage = await responseContent.ReadAsStringAsync();
-                }
-                else
-                {
-                    await GenericBadRequestManagerAsync(openConcreteMatchResponse, responseContent);
-                    openConcreteMatch = await responseContent.ReadAsAsync<ConcreteMatch>();
-                }
+                await GenericBadRequestManagerAsync(openConcreteMatchResponse, responseContent);
+                openConcreteMatch = await responseContent.ReadAsAsync<ConcreteMatch>();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch { }
+            ringDisabled();
         }
 
         // Eventos Datos::journeyInit : Los eventos relacionados con el panel de ABRIR JORNADA.
@@ -790,18 +800,18 @@ namespace JPA_Porra_Burgos.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
 
         private async void OnClickAcceptMatch(object sender, RoutedEventArgs e)
         {
-            ringActive();
             var localTxt = combLocal.Text;
             var visitanteTxt = combVisit.Text;
             try
             {
+                ringActive();
                 var concreteMatch = new ConcreteMatch();
                 concreteMatch.localTeam = localTxt;
                 concreteMatch.visitorTeam = visitanteTxt;
@@ -809,12 +819,12 @@ namespace JPA_Porra_Burgos.View
                 var responseContent = acceptMatchResponse.Content;
                 await GenericBadRequestManagerAsync(acceptMatchResponse, responseContent);
                 var concreteMatchInserted = await responseContent.ReadAsAsync<ConcreteMatch>();
-                MessageBox.Show("Se ha iniciado la jornada: " + concreteMatchInserted.localTeam + " vs " + concreteMatchInserted.visitorTeam);
+                AppMessageDialog.Show("Se ha iniciado la jornada: " + concreteMatchInserted.localTeam + " vs " + concreteMatchInserted.visitorTeam);
                 Back_I_ToInitial(sender, e);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
@@ -823,21 +833,22 @@ namespace JPA_Porra_Burgos.View
 
         private void OnActualJourney_IsVisible(object sender, DependencyPropertyChangedEventArgs e)
         {
-            ringActive();
             if (cardActualJourney.Visibility == Visibility.Visible)
             {
                 try
                 {
+                    ringActive();
                     journeyTitle.Text = openConcreteMatch.localTeam + " VS " + openConcreteMatch.visitorTeam;
                     CleanComponents();
                     LoadDataJourneyContainers();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    AppWarnDialog.Show(ex.Message);
                 }
+                ringDisabled();
             }
-            ringDisabled();
+
         }
 
         private void CleanComponents()
@@ -853,6 +864,7 @@ namespace JPA_Porra_Burgos.View
         {
             try
             {
+                ringActive();
                 var jouneyplfmDataResponse = await footballDayRestClientService.getAllData();
                 var responseContent = jouneyplfmDataResponse.Content;
                 await GenericBadRequestManagerAsync(jouneyplfmDataResponse, responseContent);
@@ -862,8 +874,9 @@ namespace JPA_Porra_Burgos.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
+            ringDisabled();
         }
 
         private void Back_A_ToInitial(object sender, RoutedEventArgs e)
@@ -895,11 +908,11 @@ namespace JPA_Porra_Burgos.View
                 await GenericBadRequestManagerAsync(insertPlfmResponse, responseContent);
                 CleanComponents();
                 LoadDataJourneyContainers();
-                MessageBox.Show("Se insertó el resultado de la jornada del jugador " + combPlayers.Text);
+                AppMessageDialog.Show("Se insertó el resultado de la jornada del jugador " + combPlayers.Text);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
@@ -907,9 +920,9 @@ namespace JPA_Porra_Burgos.View
 
         private async void OnClickDeleteJourney(object sender, RoutedEventArgs e)
         {
-            ringActive();
             try
             {
+                ringActive();
                 var deleteJourneyResponse = await concreteMatchRestClientService.deleteOpenConcreteMatch();
                 var responseContent = deleteJourneyResponse.Content;
                 await GenericBadRequestManagerAsync(deleteJourneyResponse, responseContent);
@@ -918,21 +931,21 @@ namespace JPA_Porra_Burgos.View
                 {
                     throw new Exception("Ocurrió algo inesperado al tratar de borrar el partido.");
                 }
-                MessageBox.Show("Se borró el partido con éxito.");
+                AppMessageDialog.Show("Se borró el partido con éxito.");
                 Back_A_ToInitial(sender, e);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
 
         private async void OnClickCloseJourney(object sender, RoutedEventArgs e)
         {
-            ringActive();
             try
             {
+                ringActive();
                 var lGoals = inputLocal.Text;
                 var vGoals = inputVisit.Text;
                 var result = lGoals + "-" + vGoals;
@@ -943,12 +956,12 @@ namespace JPA_Porra_Burgos.View
                 CleanComponents();
                 var concreteMatch = await responseContent.ReadAsAsync<ConcreteMatch>();
                 journTable.ItemsSource = concreteMatch.lstOfPlayerFootballMatch;
-                MessageBox.Show("La jornada ha finalizado, puedes ver los resultados en la tabla.");
+                AppMessageDialog.Show("La jornada ha finalizado, puedes ver los resultados en la tabla.");
                 openConcreteMatch = null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
@@ -963,9 +976,9 @@ namespace JPA_Porra_Burgos.View
 
         private async void OnClick_ShowLicense(object sender, RoutedEventArgs e)
         {
-            ringActive();
             try
             {
+                ringActive();
                 var licenseResponse = await downloadLicenseRestClientService.serveApplicationLicense();
                 var responseContent = licenseResponse.Content;
                 await GenericBadRequestManagerAsync(licenseResponse, responseContent);
@@ -973,7 +986,7 @@ namespace JPA_Porra_Burgos.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
@@ -992,11 +1005,11 @@ namespace JPA_Porra_Burgos.View
                 {
                     throw new Exception("Ha ocurrido algún tipo de problema al mandar la notificación a soporte.");
                 }
-                MessageBox.Show("Se ha avisado con éxito a soporte. Pronto recibirás noticias.");
+                AppMessageDialog.Show("Se ha avisado con éxito a soporte. Pronto recibirás noticias.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AppWarnDialog.Show(ex.Message);
             }
             ringDisabled();
         }
@@ -1009,7 +1022,8 @@ namespace JPA_Porra_Burgos.View
         {
             if (!insertPlfmResponse.IsSuccessStatusCode)
             {
-                throw new Exception(await responseContent.ReadAsStringAsync());
+                var errorMessage = await responseContent.ReadAsAsync<ErrorWrapper>();
+                throw new Exception(errorMessage.MessageFormatted());
             }
         }
 
@@ -1020,10 +1034,12 @@ namespace JPA_Porra_Burgos.View
         private void ringActive()
         {
             ringAwait.IsActive = true;
+            this.Opacity = 0.7;
         }
         private void ringDisabled()
         {
             ringAwait.IsActive = false;
+            this.Opacity = 1;
         }
 
     }

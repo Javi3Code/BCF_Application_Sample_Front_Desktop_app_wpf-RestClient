@@ -160,6 +160,7 @@
     <Compile Include="restclient\request\AbstractRestClientService.cs" />
     <Compile Include="restclient\request\ConcreteMatchRestClientService.cs" />
     <Compile Include="restclient\request\DownloadLicenseRestClientService.cs" />
+    <Compile Include="restclient\request\Errors\ErrorWrapper.cs" />
     <Compile Include="restclient\request\FootballDayRestClientService.cs" />
     <Compile Include="restclient\request\model\ConcreteMatch.cs" />
     <Compile Include="restclient\request\model\Player.cs" />
@@ -171,6 +172,15 @@
     <Compile Include="restclient\request\SeasonRestClientService.cs" />
     <Compile Include="restclient\request\SendLogsRestClientService.cs" />
     <Compile Include="restclient\request\TeamRestClientService.cs" />
+    <Compile Include="View\AppMessageDialog.xaml.cs">
+      <DependentUpon>AppMessageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AppQuestDialog.xaml.cs">
+      <DependentUpon>AppQuestDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AppWarnDialog.xaml.cs">
+      <DependentUpon>AppWarnDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -228,6 +238,18 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\AppMessageDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AppQuestDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AppWarnDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\App.xaml
-2-1354227729
+51011505428
 
-22901888148
+26-1261016994
 38537386947
-View\Login.xaml;View\PrincipalMenu.xaml;
+View\AppMessageDialog.xaml;View\AppQuestDialog.xaml;View\AppWarnDialog.xaml;View\Login.xaml;View\PrincipalMenu.xaml;
 
 False
 

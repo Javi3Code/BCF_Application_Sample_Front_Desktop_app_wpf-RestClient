@@ -145,14 +145,18 @@ C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestCl
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\bin\Debug\System.ValueTuple.xml
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\bin\Debug\de\MahApps.Metro.resources.dll
-C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\JPA-Porra_Burgos.csprojAssemblyReference.cache
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\View\Login.baml
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\View\PrincipalMenu.baml
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\App.baml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\View\AppMessageDialog.g.cs
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\View\AppQuestDialog.g.cs
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\View\Login.g.cs
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\View\PrincipalMenu.g.cs
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\App.g.cs
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\JPA-Porra_Burgos_MarkupCompile.cache
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\JPA-Porra_Burgos_MarkupCompile.lref
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\View\AppMessageDialog.baml
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\View\AppQuestDialog.baml
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\JPA-Porra_Burgos.g.resources
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\JPA_Porra_Burgos.Properties.Resources.resources
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\JPA-Porra_Burgos.csproj.GenerateResource.cache
@@ -162,3 +166,6 @@ C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestCl
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\JPA-Porra_Burgos.csproj.CopyComplete
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\JPA-Porra_Burgos.exe
 C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\JPA-Porra_Burgos.pdb
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\JPA-Porra_Burgos.csprojAssemblyReference.cache
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\View\AppWarnDialog.g.cs
+C:\Users\JAVIER\Desktop\EClipse ACTIV\GIT_REPOSITORY\BCF_Project_Frontend-RestClientPlusWpf\obj\Debug\View\AppWarnDialog.baml
