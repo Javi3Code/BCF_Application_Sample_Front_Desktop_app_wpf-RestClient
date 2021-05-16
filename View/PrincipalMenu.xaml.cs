@@ -288,30 +288,29 @@ namespace JPA_Porra_Burgos.View
 
         private async void OnClick_DefaultValues(object sender, RoutedEventArgs e)
         {
-
+            ringActive();
             var fileUri = txtPdfPath.Text;
             if (String.IsNullOrEmpty(fileUri))
             {
-                ringActive();
+
                 AppWarnDialog.Show("Debe seleccionarse un fichero .pdf a enviar.\nEl PDF con el contenido de las reglas de participación y puntuación.");
-                ringDisabled();
+
             }
             else
             {
                 await TryToUpdateRulesAndShowAsync(null, fileUri, fileName);
             }
-
+            ringDisabled();
         }
 
         private async void OnClick_UpdateRules(object sender, RoutedEventArgs e)
         {
-
+            ringActive();
             var fileUri = txtPdfPath.Text;
             if (String.IsNullOrEmpty(fileUri))
             {
-                ringActive();
                 AppMessageDialog.Show("Debe seleccionarse un fichero .pdf a enviar, con el contenido de las reglas de participación y puntuación.");
-                ringDisabled();
+
             }
             else
             {
@@ -334,6 +333,7 @@ namespace JPA_Porra_Burgos.View
                     await TryToUpdateRulesAndShowAsync(rules, fileUri, fileName);
                 }
             }
+            ringDisabled();
 
         }
 
@@ -552,6 +552,8 @@ namespace JPA_Porra_Burgos.View
                 {
                     Func<Player, bool> isThisPlayer = pl => pl.playerNick.Equals(((Player)playersTable.SelectedValue).playerNick);
                     var player = lstOfPlayers.First(isThisPlayer);
+                    player.playerNick = txtPlayerName.Text;
+                    player.playerMail = txtPlayerMail.Text;
                     var updateResponse = await playerRestClientService.updateOnePlayer(player);
                     var responseContent = updateResponse.Content;
                     await GenericBadRequestManagerAsync(updateResponse, responseContent);
@@ -920,23 +922,29 @@ namespace JPA_Porra_Burgos.View
 
         private async void OnClickDeleteJourney(object sender, RoutedEventArgs e)
         {
-            try
+            var responseDialog = AppQuestDialog.Show("Seguro que quieres eliminar la jornada");
+            if (responseDialog.Result)
             {
-                ringActive();
-                var deleteJourneyResponse = await concreteMatchRestClientService.deleteOpenConcreteMatch();
-                var responseContent = deleteJourneyResponse.Content;
-                await GenericBadRequestManagerAsync(deleteJourneyResponse, responseContent);
-                CleanComponents();
-                if (await responseContent.ReadAsAsync<bool>() == false)
+                try
                 {
-                    throw new Exception("Ocurrió algo inesperado al tratar de borrar el partido.");
+                    ringActive();
+
+                    var deleteJourneyResponse = await concreteMatchRestClientService.deleteOpenConcreteMatch();
+                    var responseContent = deleteJourneyResponse.Content;
+                    await GenericBadRequestManagerAsync(deleteJourneyResponse, responseContent);
+                    CleanComponents();
+                    if (await responseContent.ReadAsAsync<bool>() == false)
+                    {
+                        throw new Exception("Ocurrió algo inesperado al tratar de borrar el partido.");
+                    }
+                    openConcreteMatch = null;
+                    AppMessageDialog.Show("Se borró el partido con éxito.");
+                    Back_A_ToInitial(sender, e);
                 }
-                AppMessageDialog.Show("Se borró el partido con éxito.");
-                Back_A_ToInitial(sender, e);
-            }
-            catch (Exception ex)
-            {
-                AppWarnDialog.Show(ex.Message);
+                catch (Exception ex)
+                {
+                    AppWarnDialog.Show(ex.Message);
+                }
             }
             ringDisabled();
         }
