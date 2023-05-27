@@ -1,0 +1,764 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+   xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    x:Class="JPA_Porra_Burgos.View.PrincipalMenu"
+        mc:Ignorable="d"
+        AllowDrop="True" WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Title="PrincipalMenu" Height="550" Width="650" >
+    <Grid >
+        <Image x:Name="imgwllp"  HorizontalAlignment="Center" 
+               Margin="163,0,0,0" VerticalAlignment="Center"   Stretch="Fill" Source="/JPA-Porra_Burgos;component/res/mnu.png" Width="487" Height="550"/>
+        <mah:HamburgerMenu x:Name="menu" DisplayMode="CompactOverlay"    HamburgerHeight="550" HamburgerWidth="50" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                           Height="550" Width="163" Margin="0,0,486.6,0" IsEnabled="True"  
+                           PanePlacement="Left" IsPaneOpen="False" PaneBackground="#2e7240" 
+                           PaneForeground="WhiteSmoke" PaneMargin="0" OpenPaneLength="150"   
+                           OptionsVisibility="Hidden" OverridesDefaultStyle="True" MaximumOpenPaneLength="240"
+                           MinimumOpenPaneLength="50" 
+                           >
+            <mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+                <DataTemplate >
+                    <Grid>
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="35" ></RowDefinition>
+                            <RowDefinition Height="5" ></RowDefinition>
+                            <RowDefinition Height="70"></RowDefinition>
+                            <RowDefinition Height="30" ></RowDefinition>
+                            <RowDefinition Height="70"></RowDefinition>
+                            <RowDefinition Height="30" ></RowDefinition>
+                            <RowDefinition Height="70"></RowDefinition>
+                            <RowDefinition Height="30" ></RowDefinition>
+                            <RowDefinition Height="70"></RowDefinition>
+                            <RowDefinition Height="30" ></RowDefinition>
+                            <RowDefinition Height="70"></RowDefinition>
+                            <RowDefinition Height="30" ></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0"
+                            HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           TextAlignment="Center"
+                           Foreground="White"
+                           Text="MENÚ" Width="99" FontSize="20" FontWeight="Bold"  RenderTransformOrigin="0.468,0.532" />
+                        <Button x:Name="teamsBtn_e" Width="80" Click="OnClickShow"   mah:ControlsHelper.FocusBorderBrush="WhiteSmoke" 
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                 mah:ControlsHelper.CornerRadius="20" Grid.Row="2" >
+                            <DockPanel >
+                                <Image Stretch="Fill" StretchDirection="Both" Source="/res/hamb_items/teams.png" Cursor="Hand" />
+                            </DockPanel>
+                        </Button>
+                        <TextBlock Text="EQUIPOS" FontSize="16" VerticalAlignment="Top" TextAlignment="Center" FontWeight="Bold" Foreground="WhiteSmoke" Grid.Row="3"></TextBlock>
+                        <Button x:Name="journeyBtn_j" Width="80"  Click="OnClickShow"  mah:ControlsHelper.FocusBorderBrush="WhiteSmoke" 
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                 mah:ControlsHelper.CornerRadius="20" Grid.Row="4" >
+                            <DockPanel >
+                                <Image Stretch="Fill" StretchDirection="Both" Source="/res/hamb_items/Jornada.png" Cursor="Hand" />
+                            </DockPanel>
+                        </Button>
+                        <TextBlock Text="JORNADA" FontSize="16" TextAlignment="Center" VerticalAlignment="Top"  FontWeight="Bold" Foreground="WhiteSmoke" Grid.Row="5">
+                        </TextBlock>
+                        <Button x:Name="playersBtn_p" Width="80"  Click="OnClickShow"  mah:ControlsHelper.FocusBorderBrush="WhiteSmoke" 
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                 mah:ControlsHelper.CornerRadius="20" Grid.Row="6" >
+                            <DockPanel >
+                                <Image Stretch="Fill" StretchDirection="Both" Source="/res/hamb_items/player.png" Cursor="Hand" />
+                            </DockPanel>
+                        </Button>
+                        <TextBlock Text="JUGADORES" FontSize="16" VerticalAlignment="Top" TextAlignment="Center" FontWeight="Bold"
+                                   Foreground="WhiteSmoke" Grid.Row="7"></TextBlock>
+                        <Button x:Name="tableBtn_t" Width="80"  Click="OnClickShow"  mah:ControlsHelper.FocusBorderBrush="WhiteSmoke" 
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                 mah:ControlsHelper.CornerRadius="20" Grid.Row="8" >
+                            <DockPanel >
+                                <Image Stretch="Fill" StretchDirection="Both" Source="/res/hamb_items/results.png" Cursor="Hand" />
+                            </DockPanel>
+                        </Button>
+                        <TextBlock Text="TABLA" FontSize="16" TextAlignment="Center" VerticalAlignment="Top"  FontWeight="Bold"
+                                   Foreground="WhiteSmoke" Grid.Row="9">
+                        </TextBlock>
+                        <Button x:Name="adjustBtn_c" Width="80" Click="OnClickShow"  mah:ControlsHelper.FocusBorderBrush="WhiteSmoke" 
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                 mah:ControlsHelper.CornerRadius="20" Grid.Row="10" >
+                            <DockPanel >
+                                <Image Stretch="Fill" StretchDirection="Both" Source="/res/hamb_items/rules.png" Cursor="Hand" />
+                            </DockPanel>
+                        </Button>
+                        <TextBlock Text="AJUSTES" FontSize="16" VerticalAlignment="Top" TextAlignment="Center" FontWeight="Bold" 
+                                   Foreground="WhiteSmoke" Grid.Row="11"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+        </mah:HamburgerMenu>
+        <Button x:Name="btnClose" Content="OFF" IsCancel="True" FontSize="20" MouseEnter="OnEnterFGChange"
+                MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left" Click="OnClickClose" Margin="574,0,0,0" 
+                VerticalAlignment="Top" Width="74" Height="116" mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1" 
+                mah:ControlsHelper.RecognizesAccessKey="False" ClickMode="Press"
+                Cursor="Hand" Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#2e7240" Offset="0"/>
+                    <GradientStop Color="#2e7240" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnHelp" Content="?" FontSize="30" HorizontalAlignment="Left" MouseEnter="OnEnterFGChange" MouseLeave="OnLeaveFGChange" Click="OnClickHelp" Margin="574,450,0,0" VerticalAlignment="Top" Width="74" Height="100" mah:ControlsHelper.ContentCharacterCasing="Normal" mah:ControlsHelper.FocusBorderBrush="#FF749A70" mah:ControlsHelper.FocusBorderThickness="0" mah:ControlsHelper.RecognizesAccessKey="False" ClickMode="Press" Cursor="Hand" Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#2e7240" Offset="0"/>
+                    <GradientStop Color="#2e7240" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <materialDesign:Card x:Name="card" Visibility="Hidden" Background="#2e7240" HorizontalAlignment="Left" Margin="163,0,0,0" VerticalAlignment="Top" Height="550" Width="414">
+            <mah:RevealImage Margin="0,0,10.4,10.4" HorizontalAlignment="Right" Width="379" Height="483" VerticalAlignment="Bottom" Image="/JPA-Porra_Burgos;component/res/help.png"/>
+        </materialDesign:Card>
+        <materialDesign:Card x:Name="cardTeams" IsVisibleChanged="OnTeamsCard_IsVisible" Visibility="Hidden" Background="#2e7240" HorizontalAlignment="Right" VerticalAlignment="Top" Height="550" Width="650" Margin="0,0,-0.4,0">
+            <Grid>
+                <TextBlock Text="EQUIPOS" FontSize="25"  VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold" 
+                                   Foreground="WhiteSmoke" Height="37" Margin="0,0,-0.4,513.4" HorizontalAlignment="Right" Width="565"/>
+                <Button x:Name="btnBack_e" Style="{DynamicResource btnStyle}"  Width="80" Click="OnClickBack"  
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                    BorderBrush="Transparent"
+                                 mah:ControlsHelper.CornerRadius="8" Grid.Row="8" Margin="0,0,569.6,0.4" >
+                    <DockPanel >
+                        <Image  Visibility="Visible"   Stretch="Uniform" StretchDirection="Both" Source="/res/menu_r/home.png" Cursor="Hand" />
+                    </DockPanel>
+                </Button>
+                <TextBlock Text="NOMBRE DEL EQUIPO"  FontSize="16" VerticalAlignment="Top" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Foreground="WhiteSmoke" Margin="145,144,259.6,0" Height="32"/>
+                <TextBox x:Name="txtTeamName"  Background="#81c994" TextAlignment="Center" FontSize="16"
+                         FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" 
+                         Margin="104,181,221.6,336.4"></TextBox>
+                <DataGrid x:Name="teamsTable" HorizontalAlignment="Left" Margin="446,58,0,21.4" Width="184"
+                          MinColumnWidth="170"  ColumnHeaderHeight="35"  
+                          RowHeight="28" IsReadOnly="True" GridLinesVisibility="None"   AutoGenerateColumns="false"
+                          Padding="5"
+                          BorderBrush="#FF484747" FontSize="15" AlternatingRowBackground="#67bddc">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Todos los Equipos" Binding="{Binding teamName}" />
+                    </DataGrid.Columns>
+                    <DataGrid.Resources>
+                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#1d6285" />
+                            <Setter Property="FontWeight" Value="DemiBold"/>
+                            <Setter Property="Foreground" Value="WhiteSmoke"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                        <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
+                            <Setter Property="FontWeight" Value="Regular"/>
+                        </Style>
+                        <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}">
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.Margin" Value="3"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <Button x:Name="btnAddTeam" Content="AÑADIR EQUIPO" FontSize="20" Click="OnClickAddTeam"
+                        MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="104,237,0,0" 
+                        VerticalAlignment="Top" Width="324" Height="66" MouseEnter="OnEnterFGChange"
+                        mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                        mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                        mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                        Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Image Source="/res/goal.png" Margin="216,324,335.6,106.4"/>
+                <Button x:Name="btnDeleteTeam" Content="BORRAR EQUIPO" FontSize="20" Click="OnClickDeleteSelected"
+                        MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="104,463,0,0" 
+                        VerticalAlignment="Top" Width="324" Height="66" MouseEnter="OnEnterFGChange"
+                        mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                        mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                        mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                        Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card x:Name="cardInitJourney" IsVisibleChanged="OnVisibility_Visible_LoadTeams" Visibility="Hidden" Background="#2e7240" HorizontalAlignment="Right" VerticalAlignment="Top" Height="550" Width="650" Margin="0,0,-0.4,0">
+            <Grid>
+                <TextBlock Text="JORNADA" FontSize="25"  VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold" 
+                                   Foreground="WhiteSmoke" Height="37" Margin="0,0,-0.4,513.4" HorizontalAlignment="Right" Width="570"/>
+                <Button x:Name="btnBack_i" Style="{DynamicResource btnStyle}"  Width="80" Click="Back_I_ToInitial"  
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                    BorderBrush="Transparent"
+                                 mah:ControlsHelper.CornerRadius="8" Grid.Row="8" Margin="0,0,569.6,0.4" >
+                    <DockPanel >
+                        <Image  Visibility="Visible"   Stretch="Uniform" StretchDirection="Both" Source="/res/menu_r/home.png" Cursor="Hand" />
+                    </DockPanel>
+                </Button>
+                <TextBlock Text="EQUIPO LOCAL: "  FontSize="16" VerticalAlignment="Top" TextWrapping="Wrap" TextAlignment="Right" FontWeight="Bold" Foreground="WhiteSmoke" Margin="80,105,371.6,0" Height="32"/>
+                <TextBlock Text="EQUIPO VISITANTE: "  FontSize="16" VerticalAlignment="Top" TextWrapping="Wrap" TextAlignment="Right" FontWeight="Bold" Foreground="WhiteSmoke" Margin="85,260,371.6,0" Height="32"/>
+                <ComboBox x:Name="combLocal" HorizontalContentAlignment="Center"  MaxDropDownHeight="80" Margin="301,98,38.6,420.4" FontSize="16" IsEditable="True" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False"></ComboBox>
+                <ComboBox x:Name="combVisit" HorizontalContentAlignment="Center" MaxDropDownHeight="80" Margin="301,253,38.6,265.4" FontSize="16"  IsEditable="True" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False"></ComboBox>
+                <TextBlock Text="VS"  FontSize="50" VerticalAlignment="Top" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Foreground="WhiteSmoke" Margin="405,159,145.6,0" Height="80" RenderTransformOrigin="-0.128,-1.51"/>
+                <Button x:Name="btnAcceptMatch" Content="EMPEZAR PARTIDO" FontSize="20" Click="OnClickAcceptMatch"
+                        MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="114,395,0,0" 
+                        VerticalAlignment="Top" Width="497" Height="102" MouseEnter="OnEnterFGChange"
+                        mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                        mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                        mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                        Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card x:Name="cardActualJourney" Visibility="Hidden" IsVisibleChanged="OnActualJourney_IsVisible" Background="#2e7240" HorizontalAlignment="Right" VerticalAlignment="Top" Height="550" Width="650" Margin="0,0,-0.4,0">
+            <Grid>
+                <TextBlock x:Name="journeyTitle" FontSize="20"  VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold" 
+                                   Foreground="WhiteSmoke" Height="37" Margin="0,0,-0.4,513.4" HorizontalAlignment="Right" Width="570"/>
+                <Button x:Name="btnBack_a" Style="{DynamicResource btnStyle}"  Width="80" Click="Back_A_ToInitial"  
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                    BorderBrush="Transparent"
+                                 mah:ControlsHelper.CornerRadius="8" Grid.Row="8" Margin="0,0,569.6,0.4" >
+                    <DockPanel >
+                        <Image  Visibility="Visible"   Stretch="Uniform" StretchDirection="Both" Source="/res/menu_r/home.png" Cursor="Hand" />
+                    </DockPanel>
+                </Button>
+                <TextBlock Text="RESULTADO DEL PARTIDO: "  FontSize="16" VerticalAlignment="Top" TextWrapping="Wrap" TextAlignment="Right" FontWeight="Bold" Foreground="WhiteSmoke" Margin="100,72,255.6,0" Height="33"/>
+                <TextBox x:Name="inputLocal" PreviewTextInput="OnTxtChanged_ForDigitOnly" PreviewKeyDown="OnSpacePress_NoEvent"  Background="#81c994" TextAlignment="Center" FontSize="16"
+                    FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" 
+                    Margin="442,63,162.6,454.4"/>
+                <TextBox x:Name="inputVisit" PreviewTextInput="OnTxtChanged_ForDigitOnly" PreviewKeyDown="OnSpacePress_NoEvent"  Background="#81c994" TextAlignment="Center" FontSize="16"
+                    FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" 
+                    Margin="554,63,50.6,454.4"/>
+                <TextBlock Text="-"  FontSize="50" VerticalAlignment="Top" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Foreground="WhiteSmoke" Margin="491,42,101.6,0" Height="85"/>
+                <Button x:Name="btnCloseJourney" Content="FINALIZAR" FontSize="20" Click="OnClickCloseJourney"
+                        MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="442,105,0,0" 
+                        VerticalAlignment="Top" Width="157" Height="40" MouseEnter="OnEnterFGChange"
+                        mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                        mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                        mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                        Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnDeleteJourney" Content="ELIMINAR JORNADA" FontSize="20" Click="OnClickDeleteJourney"
+                    MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="184,105,0,0" 
+                    VerticalAlignment="Top" Width="240" Height="40" MouseEnter="OnEnterFGChange"
+                    mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                    mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                    mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                    Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <TextBlock  FontSize="16" VerticalAlignment="Top" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Foreground="WhiteSmoke" Margin="245,164,294.6,0" Height="32" Text="JUGADOR" RenderTransformOrigin="0.181,0.633"/>
+                <ComboBox x:Name="combPlayers"  HorizontalContentAlignment="Center" MaxDropDownHeight="80" Margin="184,202,225.6,316.4" FontSize="16" IsEditable="True" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False"></ComboBox>
+                <TextBox x:Name="inputLocPl" PreviewTextInput="OnTxtChanged_ForDigitOnly" PreviewKeyDown="OnSpacePress_NoEvent"  Background="#81c994" TextAlignment="Center" FontSize="16"
+                    FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" 
+                    Margin="442,202,162.6,315.4"/>
+                <TextBox x:Name="inputVisPl" PreviewTextInput="OnTxtChanged_ForDigitOnly" PreviewKeyDown="OnSpacePress_NoEvent"  Background="#81c994" TextAlignment="Center" FontSize="16"
+                    FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" 
+                    Margin="554,202,50.6,315.4"/>
+                <TextBlock Text="RESULTADO"  FontSize="16" VerticalAlignment="Top" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Foreground="WhiteSmoke" Margin="422,165,30.6,0" Height="32"/>
+                <TextBlock Text="-"  FontSize="50" VerticalAlignment="Top" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Foreground="WhiteSmoke" Margin="491,181,101.6,0" Height="85"/>
+                <DataGrid x:Name="journTable" HorizontalAlignment="Left" Margin="184,308,0,21.4" Width="418"
+                          MinColumnWidth="130"  ColumnHeaderHeight="35"  
+                          RowHeight="28" IsReadOnly="True" GridLinesVisibility="None"    AutoGenerateColumns="false"
+                          Padding="5"
+                          BorderBrush="#FF484747" FontSize="15" AlternatingRowBackground="#67bddc">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Jugador" Binding="{Binding playerNick}" />
+                        <DataGridTextColumn Header="Resultado" Binding="{Binding playerFootBallMatchResult}" />
+                        <DataGridTextColumn Header="Puntos Obtenidos" Binding="{Binding matchPoints}" />
+                    </DataGrid.Columns>
+                    <DataGrid.Resources>
+                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#1d6285" />
+                            <Setter Property="FontWeight" Value="DemiBold"/>
+                            <Setter Property="Foreground" Value="WhiteSmoke"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                        <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
+                            <Setter Property="FontWeight" Value="Regular"/>
+                        </Style>
+                        <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}">
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.Margin" Value="3"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <Button x:Name="btnAddPlMatch" Content="AÑADIR RESULTADO" FontSize="20" Click="OnClickAddPlayerResult"
+                    MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="184,249,0,0" 
+                    VerticalAlignment="Top" Width="415" Height="43" MouseEnter="OnEnterFGChange"
+                    mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                    mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                    mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                    Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card x:Name="cardJourney" IsVisibleChanged="OnCardJourney_IsVisibilityChanged" Visibility="Hidden" Background="#2e7240" HorizontalAlignment="Right" VerticalAlignment="Top" Height="550" Width="650" Margin="0,0,-0.4,0">
+            <Grid>
+                <TextBlock Text="JORNADA" FontSize="25"  VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold" 
+                                   Foreground="WhiteSmoke" Height="37" Margin="0,0,-0.4,513.4" HorizontalAlignment="Right" Width="570"/>
+                <Button x:Name="btnBack_j" Style="{DynamicResource btnStyle}"  Width="80" Click="OnClickBack"  
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                    BorderBrush="Transparent"
+                                 mah:ControlsHelper.CornerRadius="8" Grid.Row="8" Margin="0,0,569.6,0.4" >
+                    <DockPanel >
+                        <Image  Visibility="Visible"   Stretch="Uniform" StretchDirection="Both" Source="/res/menu_r/home.png" Cursor="Hand" />
+                    </DockPanel>
+                </Button>
+                <Image Source="/res/stadium.png" Margin="185,145,118.6,124.4"/>
+                <Button x:Name="btnInitJourney_i" Content="INICIAR JORNADA" FontSize="20" Click="OnClickOpenNewJourney"
+                        MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="103,91,0,0" 
+                        VerticalAlignment="Top" Width="523" Height="102" MouseEnter="OnEnterFGChange"
+                        mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                        mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                        mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                        Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnActualJourney_a" Content="JORNADA ACTUAL" FontSize="20" Click="OnClickOpenActualJourney"
+                        MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="103,386,0,0" 
+                        VerticalAlignment="Top" Width="523" Height="102" MouseEnter="OnEnterFGChange"
+                        mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                        mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                        mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                        Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card x:Name="cardPlayers" IsVisibleChanged="OnPlayersCard_IsVisible" Visibility="Hidden" Background="#2e7240" HorizontalAlignment="Right" VerticalAlignment="Top" Height="550" Width="650" Margin="0,0,-0.4,0">
+            <Grid>
+                <TextBlock Text="JUGADORES" FontSize="25"  VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold" 
+                                   Foreground="WhiteSmoke" Height="37" Margin="0,0,-0.4,513.4" HorizontalAlignment="Right" Width="570"/>
+                <Button x:Name="btnBack_p" Style="{DynamicResource btnStyle}"  Width="80" Click="OnClickBack"  
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                    BorderBrush="Transparent"
+                                 mah:ControlsHelper.CornerRadius="8" Grid.Row="8" Margin="0,0,569.6,0.4" >
+                    <DockPanel >
+                        <Image  Visibility="Visible"   Stretch="Uniform" StretchDirection="Both" Source="/res/menu_r/home.png" Cursor="Hand" />
+                    </DockPanel>
+                </Button>
+                <TextBlock Text="NICK"  FontSize="16" VerticalAlignment="Top" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Foreground="WhiteSmoke" Margin="123,59,329.6,0" Height="32"/>
+                <TextBox x:Name="txtPlayerName"  Background="#81c994" TextAlignment="Center" FontSize="16"
+                         FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" 
+                         Margin="123,96,329.6,420.4"></TextBox>
+                <TextBlock Text="E-MAIL"  FontSize="16" VerticalAlignment="Top" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Foreground="WhiteSmoke" Margin="123,270,329.6,0" Height="32"/>
+                <TextBox x:Name="txtPlayerMail"  Background="#81c994" TextAlignment="Center" FontSize="16"
+                    FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" 
+                    Margin="99,307,308.6,210.4"/>
+                <Image Source="/res/player.png" Margin="168,162,370.6,302.4"/>
+                <DataGrid x:Name="playersTable" HorizontalAlignment="Left" Margin="360,55,0,101.4" Width="270"
+                          MinColumnWidth="100"  ColumnHeaderHeight="35"   AreRowDetailsFrozen="True"
+                          RowHeight="28" IsReadOnly="True" GridLinesVisibility="None"    AutoGenerateColumns="false"
+                          Padding="5"
+                          BorderBrush="#FF484747" FontSize="15" AlternatingRowBackground="#67bddc">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nick" Binding="{Binding playerNick}" />
+                        <DataGridTextColumn Header="Correo Electrónico" Binding="{Binding playerMail}" />
+                    </DataGrid.Columns>
+                    <DataGrid.Resources>
+                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#1d6285" />
+                            <Setter Property="FontWeight" Value="DemiBold"/>
+                            <Setter Property="Foreground" Value="WhiteSmoke"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                        <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
+                            <Setter Property="FontWeight" Value="Regular"/>
+                        </Style>
+                        <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}">
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.Margin" Value="3"/>
+                            <Setter Property="TextBlock.Focusable" Value="False"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <Button x:Name="btnInsertPl" Content="AÑADIR JUGADOR" FontSize="20" Click="OnClickAddPlayer"
+                        MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="99,383,0,0" 
+                        VerticalAlignment="Top" Width="238" Height="66" MouseEnter="OnEnterFGChange"
+                        mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                        mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                        mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                        Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnUpdatePlayer" Content="ACTUALIZAR JUGADOR" FontSize="20" Click="OnClickUpdatePlayer"
+                    MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="103,474,0,0" 
+                    VerticalAlignment="Top" Width="238" Height="66" MouseEnter="OnEnterFGChange"
+                    mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                    mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                    mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                    Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnDelete" Content="BORRAR JUGADOR" FontSize="20" Click="OnClickDeletePlayer"
+                    MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="377,474,0,0" 
+                    VerticalAlignment="Top" Width="238" Height="66" MouseEnter="OnEnterFGChange"
+                    mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                    mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                    mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                    Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card x:Name="cardResults" IsVisibleChanged="OnResultsCard_IsVisible" Visibility="Hidden" Background="#2e7240"
+                             HorizontalAlignment="Right" VerticalAlignment="Top" Height="550" Width="650" Margin="0,0,-0.4,0">
+            <Grid>
+                <TextBlock Text="RESULTADOS" FontSize="25"  VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold" 
+                                   Foreground="WhiteSmoke" Height="35" Margin="0,0,-0.4,515.4" HorizontalAlignment="Right" Width="565"/>
+                <Button x:Name="btnBack_t" Style="{DynamicResource btnStyle}"  Width="80" Click="OnClickBack"  
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                    BorderBrush="Transparent"
+                                 mah:ControlsHelper.CornerRadius="8" Grid.Row="8" Margin="0,0,569.6,0.4" >
+                    <DockPanel >
+                        <Image  Visibility="Visible"   Stretch="Uniform" StretchDirection="Both" Source="/res/menu_r/home.png" Cursor="Hand" />
+                    </DockPanel>
+                </Button>
+                <DataGrid x:Name="resultTable" HorizontalAlignment="Left" Margin="184,55,0,90.4" Width="365"
+                          MinColumnWidth="170"  ColumnHeaderHeight="35"   AreRowDetailsFrozen="True"
+                          RowHeight="28" IsReadOnly="True" GridLinesVisibility="None"  
+                          Padding="5"  AutoGenerateColumns="false"
+                          BorderBrush="#FF484747" FontSize="15" AlternatingRowBackground="#67bddc">
+                    <DataGrid.Resources>
+                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#1d6285" />
+                            <Setter Property="FontWeight" Value="DemiBold"/>
+                            <Setter Property="Foreground" Value="WhiteSmoke"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                        <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
+                            <Setter Property="FontWeight" Value="Regular"/>
+                        </Style>
+                        <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}">
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.Margin" Value="3"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nick" Binding="{Binding playerNick}" />
+                        <DataGridTextColumn Header="Puntos Totales" Binding="{Binding playerTotalPoints}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="btnResetTemp" Content="TERMINAR TEMPORADA" FontSize="20" Click="OnClickResetTemp"
+                        MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="95,474,0,0" 
+                        VerticalAlignment="Top" Width="535" Height="66" MouseEnter="OnEnterFGChange"
+                        mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                        mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                        mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                        Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card x:Name="cardSupport" IsVisibleChanged="On_CarSupport_IsVisible" Visibility="Hidden" Background="#2e7240" HorizontalAlignment="Right" VerticalAlignment="Top" Height="550" Width="650" Margin="0,0,-0.4,0">
+            <Grid>
+                <TextBlock Text="SOPORTE" FontSize="25"  VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold" 
+                                   Foreground="WhiteSmoke" Height="33" Margin="0,0,-0.4,517.4" HorizontalAlignment="Right" Width="565"/>
+                <Button x:Name="btnBack_s" Style="{DynamicResource btnStyle}"  Width="80" Click="Back_C_ToInitial"  
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                    BorderBrush="Transparent"
+                                 mah:ControlsHelper.CornerRadius="8" Grid.Row="8" Margin="0,0,569.6,0.4" >
+                    <DockPanel >
+                        <Image  Visibility="Visible"   Stretch="Uniform" StretchDirection="Both" Source="/res/menu_r/home.png" Cursor="Hand" />
+                    </DockPanel>
+                </Button>
+                <TextBlock Text="ENVIAR ALERTA A SOPORTE: " FontSize="16" VerticalAlignment="Top"  TextAlignment="Right" TextWrapping="Wrap" FontWeight="Bold" Foreground="WhiteSmoke" Margin="94,71,333.6,0" Height="29"/>
+                <TextBox x:Name="txtErrMsg" TextChanged="OnTxtErrMsgChanged_UpdateCharLabel" MaxLength="500" TextWrapping="Wrap" AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Visible" MaxLines="5"  Background="#81c994" TextAlignment="Center"
+                         FontSize="11" FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" Margin="94,105,21.6,386.4"></TextBox>
+                <Label x:Name="charLbl" Content="/500"  HorizontalAlignment="Left" HorizontalContentAlignment="Right" Foreground="WhiteSmoke" VerticalContentAlignment="Top" Margin="568,164,0,0" VerticalAlignment="Top" Height="27" Width="60"/>
+                <Button x:Name="btnSendLogs" Content="ENVIAR" FontSize="20" MouseEnter="OnEnterFGChange" 
+                        MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="453,57,0,0" 
+                        VerticalAlignment="Top" Width="175" Height="39" Click="OnClick_SendErrorMessageToSupport"
+                        mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                        mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                        mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                        Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <TextBlock Text="LICENCIA BCF APPLICATION" FontSize="16" VerticalAlignment="Top"  TextAlignment="Right" TextWrapping="Wrap" FontWeight="Bold" Foreground="WhiteSmoke" Margin="94,208,336.6,0" Height="29"/>
+                <TextBox x:Name="txtLicense" IsReadOnly="True" IsEnabled="true"   TextWrapping="Wrap" AcceptsReturn="True"
+                    VerticalScrollBarVisibility="Visible"  Background="#81c994" TextAlignment="Center"
+                    FontSize="11" FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" Margin="94,247,21.6,10.4"/>
+                <Button x:Name="btnShowLicense" Content="VER" FontSize="20" MouseEnter="OnEnterFGChange" 
+                    MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="453,196,0,0"  
+                    VerticalAlignment="Top" Width="175" Height="39" Click="OnClick_ShowLicense"
+                    mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                    mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                    mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                    Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <TextBlock Text="ENVIAR ALERTA A SOPORTE: " FontSize="16" VerticalAlignment="Top"  TextAlignment="Right" TextWrapping="Wrap" FontWeight="Bold" Foreground="WhiteSmoke" Margin="94,71,333.6,0" Height="29"/>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card x:Name="cardRules" Visibility="Hidden" IsVisibleChanged="OnVisibility_Visible" Background="#2e7240" HorizontalAlignment="Right" VerticalAlignment="Top" Height="550" Width="650" Margin="0,0,-0.4,0">
+            <Grid>
+                <TextBlock Text="REGLAS" FontSize="25"  VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold" 
+                                   Foreground="WhiteSmoke" Height="33" Margin="0,0,-0.4,517.4" HorizontalAlignment="Right" Width="565"/>
+                <Button x:Name="btnBack_r" Style="{DynamicResource btnStyle}"  Width="80" Click="Back_R_ToInitial"  
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                    BorderBrush="Transparent"
+                                 mah:ControlsHelper.CornerRadius="8" Grid.Row="8" Margin="0,0,569.6,0.4" >
+                    <DockPanel >
+                        <Image  Visibility="Visible"   Stretch="Uniform" StretchDirection="Both" Source="/res/menu_r/home.png" Cursor="Hand" />
+                    </DockPanel>
+                </Button>
+                <TextBlock Text="PUNTOS POR RESULTADO: " FontSize="16" VerticalAlignment="Top"  TextAlignment="Right" TextWrapping="Wrap" FontWeight="Bold" Foreground="WhiteSmoke" Margin="175,74,252.6,0" Height="29"/>
+                <TextBlock Text="PUNTOS POR SIGNO: " FontSize="16" VerticalAlignment="Top" TextAlignment="Right" TextWrapping="Wrap" FontWeight="Bold" Foreground="WhiteSmoke" Margin="175,108,252.6,0" Height="29"/>
+                <TextBlock Text="PUNTOS POR GOLES DEL BURGOS: "  FontSize="16" VerticalAlignment="Top" TextWrapping="Wrap" TextAlignment="Right" FontWeight="Bold" Foreground="WhiteSmoke" Margin="85,142,252.6,0" Height="29"/>
+                <TextBox x:Name="txtPR" PreviewTextInput="OnTxtChanged_ForDigitOnly" PreviewKeyDown="OnSpacePress_NoEvent" Background="#81c994" TextAlignment="Center" FontSize="16" FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" Margin="492,74,90.6,447.4"></TextBox>
+                <TextBox x:Name="txtSR" PreviewTextInput="OnTxtChanged_ForDigitOnly" PreviewKeyDown="OnSpacePress_NoEvent" Background="#81c994" TextAlignment="Center" FontSize="16" FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" Margin="492,108,90.6,413.4"></TextBox>
+                <TextBox x:Name="txtGR" PreviewTextInput="OnTxtChanged_ForDigitOnly" PreviewKeyDown="OnSpacePress_NoEvent" Background="#81c994" TextAlignment="Center" FontSize="16" FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" Margin="492,142,90.6,379.4"></TextBox>
+
+                <Button x:Name="btnupRules" Content="NUEVAS REGLAS"  FontSize="20" MouseEnter="OnEnterFGChange"
+                        Click="OnClick_UpdateRules"
+                        MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="391,336,0,0" 
+                        VerticalAlignment="Top" Width="242" Height="66" mah:ControlsHelper.ContentCharacterCasing="Normal"
+                        mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                        mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" Foreground="White" 
+                        AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <DataGrid x:Name="rulesTable" HorizontalAlignment="Left" Margin="98,432,0,27.4" Width="535"
+                          MinColumnWidth="170"  ColumnHeaderHeight="35"   AreRowDetailsFrozen="True"
+                          RowHeight="28" IsReadOnly="True" GridLinesVisibility="None"   AutoGenerateColumns="false"
+                          Padding="5"
+                          BorderBrush="#FF484747" FontSize="15" AlternatingRowBackground="#67bddc">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Puntos por Resultado" Binding="{Binding resultPoints}" />
+                        <DataGridTextColumn Header="Puntos por Signo" Binding="{Binding signPoints}" />
+                        <DataGridTextColumn Header="Puntos por Goles" Binding="{Binding goalsBCFPoints}" />
+                    </DataGrid.Columns>
+                    <DataGrid.Resources>
+                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#1d6285" />
+                            <Setter Property="FontWeight" Value="DemiBold"/>
+                            <Setter Property="Foreground" Value="WhiteSmoke"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                        <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
+                            <Setter Property="FontWeight" Value="Regular"/>
+                        </Style>
+                        <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}">
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.Margin" Value="3"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <Button x:Name="btnDftR" Content="REGLAS POR DEFECTO" FontSize="20" MouseEnter="OnEnterFGChange" 
+                        MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="98,336,0,0" 
+                        VerticalAlignment="Top" Width="238" Height="66" Click="OnClick_DefaultValues"
+                        mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                        mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                        mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                        Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnLoadPdf" Content="CARGAR PDF DE REGLAS" FontSize="20" MouseEnter="OnEnterFGChange" 
+                    MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="98,187,0,0" 
+                    VerticalAlignment="Top" Width="535" Height="45" Click="OnEnterLoadFile"
+                    mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                    mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                    mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                    Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <TextBox x:Name="txtPdfPath" IsEnabled="False" Background="#81c994" TextAlignment="Center" FontSize="16" FontWeight="Bold" mah:ControlsHelper.CornerRadius="10" BorderThickness="0,0,0,3" Margin="98,264,16.6,249.4"/>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card x:Name="cardAdjust" Visibility="Hidden" Background="#2e7240" HorizontalAlignment="Right" VerticalAlignment="Top" Height="550" Width="650" Margin="0,0,-0.4,0">
+            <Grid>
+                <TextBlock Text="AJUSTES" FontSize="25"  VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold" 
+                                   Foreground="WhiteSmoke" Height="37" Margin="0,0,-0.4,513.4" HorizontalAlignment="Right" Width="570"/>
+                <Button x:Name="btnBack_c" Style="{DynamicResource btnStyle}"  Width="80" Click="OnClickBack"  
+                                mah:ControlsHelper.FocusBorderThickness="2" BorderThickness="2" Background="Transparent" 
+                                    BorderBrush="Transparent"
+                                 mah:ControlsHelper.CornerRadius="8" Grid.Row="8" Margin="0,0,569.6,0.4" >
+                    <DockPanel >
+                        <Image  Visibility="Visible"   Stretch="Uniform" StretchDirection="Both" Source="/res/menu_r/home.png" Cursor="Hand" />
+                    </DockPanel>
+                </Button>
+                <Image Source="/res/adjust.png" Margin="218,198,143.6,169.4"/>
+                <Button x:Name="btnInitSupport_s" Content="OPCIONES DE SOPORTE" FontSize="20" Click="OnClickOpenSupport"
+                        MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="103,91,0,0" 
+                        VerticalAlignment="Top" Width="523" Height="102" MouseEnter="OnEnterFGChange"
+                        mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                        mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                        mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                        Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnActualRules_r" Content="REGLAS DE LA APLICACIÓN" FontSize="20" Click="OnClickOpenRules"
+                        MouseLeave="OnLeaveFGChange" HorizontalAlignment="Left"  Margin="103,386,0,0" 
+                        VerticalAlignment="Top" Width="523" Height="102" MouseEnter="OnEnterFGChange"
+                        mah:ControlsHelper.ContentCharacterCasing="Normal" 
+                        mah:ControlsHelper.FocusBorderBrush="#FF4FAE53" mah:ControlsHelper.FocusBorderThickness="1"
+                        mah:ControlsHelper.RecognizesAccessKey="False"  Cursor="Hand" 
+                        Foreground="White" AutomationProperties.IsOffscreenBehavior="Onscreen" BorderBrush="#FF4FAE53">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#2e7240" Offset="0"/>
+                            <GradientStop Color="#2e7240" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </materialDesign:Card>
+        <mah:ProgressRing x:Name="ringAwait" Width="380" Foreground="WhiteSmoke" BorderBrush="Black" Cursor="Wait" Opacity="1"
+                  IsActive="false" />
+    </Grid>
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" SnapsToDevicePixels="true" StrokeThickness="1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="btnStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="Transparent"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#cce0d1"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#58f481"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#111311"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+</Window>
